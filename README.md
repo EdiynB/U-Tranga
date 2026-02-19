@@ -1,6 +1,7 @@
 # Tranga Unified Project
 
 This repository contains both the Backend and Frontend components of the Tranga project.
+Run on an Ubuntu 22.04 server
 
 - **Backend**: [tranga-fork-main](./tranga-fork-main)
 - **Frontend**: [tranga-yacobGUI-fork-main](./tranga-yacobGUI-fork-main)
