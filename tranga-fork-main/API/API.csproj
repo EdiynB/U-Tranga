@@ -11,6 +11,7 @@
         <OpenApiDocumentsDirectory>$(MSBuildProjectDirectory)\openapi</OpenApiDocumentsDirectory>
         <OpenApiGenerateDocuments>true</OpenApiGenerateDocuments>
         <OpenApiGenerateDocumentsOnBuild>true</OpenApiGenerateDocumentsOnBuild>
+        <Version Condition="'$(Version)' == ''">0.0.1</Version>
     </PropertyGroup>
 
     <ItemGroup>
