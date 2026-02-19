@@ -36,9 +36,23 @@ cd U-Tranga
 ```
 
 ## 3. Configuration
-The project is split into `tranga-fork-main` (Backend) and `tranga-yacobGUI-fork-main` (Frontend). To run your specific code, we will use a unified Docker Compose file that builds from source.
 
-Create a `docker-compose.yml` file in the root of the `U-Tranga` directory:
+On a headless server, you'll need to create a `docker-compose.yml` file in the root of the `U-Tranga` directory. This file tells Docker how to build and connect your backend and frontend.
+
+### A. Find your Server's IP
+You need your server's local IP address so the frontend (running in your browser) knows where to find the backend API.
+```bash
+hostname -I | awk '{print $1}'
+```
+*Note the IP address that appears (e.g., 192.168.1.50).*
+
+### B. Create the Compose File
+Use a text editor like `nano` to create the file:
+```bash
+nano docker-compose.yml
+```
+
+Paste the following content into the editor:
 
 ```yaml
 services:
@@ -48,7 +62,9 @@ services:
       dockerfile: Dockerfile
     container_name: tranga-api
     volumes:
+      # Stores your downloaded manga
       - ./Manga:/Manga
+      # Stores your application settings and database config
       - ./settings:/usr/share/tranga-api
     ports:
       - "6531:6531"
@@ -69,6 +85,7 @@ services:
     ports:
       - "9555:80"
     environment:
+      # CRITICAL: Replace <YOUR_SERVER_IP> with the IP from Step 3A
       - API_HOST=http://<YOUR_SERVER_IP>:6531
     depends_on: 
       - tranga-api
@@ -88,8 +105,12 @@ services:
     restart: unless-stopped
 ```
 
+### C. Save and Exit
+- Press `Ctrl + O` then `Enter` to save.
+- Press `Ctrl + X` to exit the editor.
+
 > [!IMPORTANT]
-> Replace `<YOUR_SERVER_IP>` with the actual IP address of your Ubuntu server so the frontend can communicate with the API.
+> The `API_HOST` must be a URL that your **own computer's browser** can reach. If you are accessing the server over a VPN or local network, use the internal IP. If you are using a domain name, use that instead.
 
 ## 4. Run the Application
 Start the containers in detached mode. This will build the images from your source code.
