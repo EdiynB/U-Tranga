@@ -24,7 +24,7 @@ RUN dotnet restore /src/API/API.csproj
 
 COPY . /src/
 RUN --mount=type=cache,id=nuget,target=/root/.nuget/packages \
-  dotnet publish /src/API/API.csproj -c Release --property:OutputPath=/publish -p:Version=0.0.1 -p:InformationalVersion=0.0.1 -maxcpucount:1 --no-cache
+  dotnet publish /src/API/API.csproj -c Release --property:OutputPath=/publish -maxcpucount:1 --no-cache
 
 FROM base AS runtime
 WORKDIR /publish
