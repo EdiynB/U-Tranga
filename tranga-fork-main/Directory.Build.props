@@ -6,9 +6,11 @@
     <SourceRevisionId>0000000</SourceRevisionId>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     
-    <!-- Stop GitInfo from interfering with assembly attributes -->
+    <!-- Stop GitInfo from interfering with assembly attributes and versioning -->
     <GitInfoExcludeFromAssembly>true</GitInfoExcludeFromAssembly>
     <IncludeGitInformation>false</IncludeGitInformation>
+    <GitInfoGenerateVersionInfo>false</GitInfoGenerateVersionInfo>
+    <GitVersionFile></GitVersionFile>
     
     <!-- Common defaults to satisfy code dependencies -->
     <GitInfo_Branch Condition="'$(GitInfo_Branch)' == ''">master</GitInfo_Branch>
