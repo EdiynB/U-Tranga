@@ -12,17 +12,14 @@ This repository contains both the Backend and Frontend components of the Tranga 
 Follow these steps to deploy your unified Tranga project on a headless Ubuntu server using Docker.
 
 ## 1. Prerequisites
-Ensure your server has Docker and Docker Compose installed.
+Ensure your server has Git, Docker, and Docker Compose installed.
 
 ```bash
 # Update package list
 sudo apt update
 
-# Install Docker
-sudo apt install docker.io -y
-
-# Install Docker Compose
-sudo apt install docker-compose-v2 -y
+# Install Git, Docker, and Docker Compose
+sudo apt install git docker.io docker-compose-v2 -y
 
 # Start and enable Docker
 sudo systemctl start docker
