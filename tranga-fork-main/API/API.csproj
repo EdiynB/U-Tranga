@@ -11,8 +11,9 @@
         <OpenApiDocumentsDirectory>$(MSBuildProjectDirectory)\openapi</OpenApiDocumentsDirectory>
         <OpenApiGenerateDocuments>true</OpenApiGenerateDocuments>
         <OpenApiGenerateDocumentsOnBuild>true</OpenApiGenerateDocumentsOnBuild>
-        <Version>0.0.1</Version>
-        <InformationalVersion>0.0.1</InformationalVersion>
+        <Version>1.0.0</Version>
+        <InformationalVersion>1.0.0</InformationalVersion>
+        <SourceRevisionId />
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
         <GitInfo_Branch Condition="'$(GitInfo_Branch)' == ''">master</GitInfo_Branch>
         <GitInfo_Commit Condition="'$(GitInfo_Commit)' == ''">docker</GitInfo_Commit>
@@ -57,7 +58,7 @@
     </ItemGroup>
 
     <PropertyGroup>
-        <IncludeGitInformation>true</IncludeGitInformation>
+        <IncludeGitInformation>false</IncludeGitInformation>
     </PropertyGroup>
 
     <ItemGroup>
