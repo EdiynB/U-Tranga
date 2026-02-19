@@ -12,6 +12,10 @@
         <OpenApiGenerateDocuments>true</OpenApiGenerateDocuments>
         <OpenApiGenerateDocumentsOnBuild>true</OpenApiGenerateDocumentsOnBuild>
         <Version Condition="'$(Version)' == ''">0.0.1</Version>
+        <InformationalVersion Condition="'$(InformationalVersion)' == ''">$(Version)</InformationalVersion>
+        <GitInfo_Branch Condition="'$(GitInfo_Branch)' == ''">master</GitInfo_Branch>
+        <GitInfo_Commit Condition="'$(GitInfo_Commit)' == ''">docker</GitInfo_Commit>
+        <GitInfo_Tag Condition="'$(GitInfo_Tag)' == ''">docker</GitInfo_Tag>
     </PropertyGroup>
 
     <ItemGroup>
