@@ -1,12 +1,10 @@
 <Project>
   <PropertyGroup>
-    <!-- Force a valid version and stop .NET from appending malformed git metadata -->
-    <Version>1.0.2</Version>
-    <InformationalVersion>1.0.2</InformationalVersion>
-    <SourceRevisionId>0000000</SourceRevisionId>
+    <!-- Prevent .NET from appending malformed git metadata -->
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <SourceRevisionId>dockerbuild</SourceRevisionId>
     
-    <!-- Stop GitInfo from interfering with assembly attributes and versioning -->
+    <!-- Stop GitInfo from interfering with versioning -->
     <GitInfoExcludeFromAssembly>true</GitInfoExcludeFromAssembly>
     <IncludeGitInformation>false</IncludeGitInformation>
     <GitInfoGenerateVersionInfo>false</GitInfoGenerateVersionInfo>
@@ -15,6 +13,6 @@
     <!-- Common defaults to satisfy code dependencies -->
     <GitInfo_Branch Condition="'$(GitInfo_Branch)' == ''">master</GitInfo_Branch>
     <GitInfo_Commit Condition="'$(GitInfo_Commit)' == ''">6a48695f</GitInfo_Commit>
-    <GitInfo_Tag Condition="'$(GitInfo_Tag)' == ''">1.0.2</GitInfo_Tag>
+    <GitInfo_Tag Condition="'$(GitInfo_Tag)' == ''">1.0.3</GitInfo_Tag>
   </PropertyGroup>
 </Project>
