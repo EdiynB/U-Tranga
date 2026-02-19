@@ -17,14 +17,16 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:$DOTNET AS build-env
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 WORKDIR /src
 COPY Tranga.sln /src
 COPY API/API.csproj /src/API/API.csproj
+COPY Directory.Build.props /src/Directory.Build.props
 RUN dotnet restore /src/API/API.csproj
 
 COPY . /src/
 RUN --mount=type=cache,id=nuget,target=/root/.nuget/packages \
-  dotnet publish /src/API/API.csproj -c Release --property:OutputPath=/publish -maxcpucount:1 --no-cache
+  dotnet publish /src/API/API.csproj -c Release --property:OutputPath=/publish --maxcpucount:1 --no-cache
 
 FROM base AS runtime
 WORKDIR /publish
