@@ -1,0 +1,18 @@
+<Project>
+  <PropertyGroup>
+    <!-- Force a valid version and stop .NET from appending malformed git metadata -->
+    <Version>1.0.2</Version>
+    <InformationalVersion>1.0.2</InformationalVersion>
+    <SourceRevisionId>0000000</SourceRevisionId>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    
+    <!-- Stop GitInfo from interfering with assembly attributes -->
+    <GitInfoExcludeFromAssembly>true</GitInfoExcludeFromAssembly>
+    <IncludeGitInformation>false</IncludeGitInformation>
+    
+    <!-- Common defaults to satisfy code dependencies -->
+    <GitInfo_Branch Condition="'$(GitInfo_Branch)' == ''">master</GitInfo_Branch>
+    <GitInfo_Commit Condition="'$(GitInfo_Commit)' == ''">6a48695f</GitInfo_Commit>
+    <GitInfo_Tag Condition="'$(GitInfo_Tag)' == ''">1.0.2</GitInfo_Tag>
+  </PropertyGroup>
+</Project>
